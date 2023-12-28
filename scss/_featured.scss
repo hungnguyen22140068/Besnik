@@ -1,0 +1,132 @@
+@use "./mixin";
+
+.featured {
+  background: var(--bg-blue-lighter);
+  margin-top: 41px;
+
+  &__inner {
+    padding: 110px 0;
+
+    @include mixin.screen(sm) {
+      padding: 60px 0;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 15px;
+
+    @include mixin.screen(md) {
+      text-align: center;
+    }
+  }
+
+  &__row-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mixin.screen(md) {
+      flex-direction: column;
+      gap: 10px 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
+
+    &-text {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--blue);
+
+      @include mixin.screen(lg) {
+        font-size: 1.6rem;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 70px;
+  }
+
+  &__item {
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 65px 80px -46px rgba(226, 238, 249, 0.6);
+
+    &:hover .featured__img {
+      scale: 1.1;
+    }
+  }
+
+  &__images {
+    position: relative;
+    padding-top: 65%;
+    display: block;
+    width: 100%;
+    height: 227px;
+    overflow: hidden;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale 0.5s ease;
+  }
+
+  &__info {
+    padding: 17px 20px 22px;
+
+    @include mixin.screen(lg) {
+      padding: 17px 15px 22px;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 11px;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 100%;
+    color: var(--black);
+
+    @include mixin.screen(sm) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 21px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--gray-lighter);
+    display: -webkit-box;
+    -webkit-line-clamp: 1; // muốn dấu 3 chấm ở hàng thứ mấy thì để số mấy
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__row-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__line {
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
+  }
+}

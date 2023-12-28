@@ -1,0 +1,173 @@
+@use "./mixin";
+
+.header {
+  padding: 38px 0 19px;
+  background: var(--bg-blue-light);
+
+  @include mixin.screen(sm) {
+    padding: 20px 0;
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include mixin.screen(lg) {
+      justify-content: space-between;
+    }
+  }
+}
+
+.more {
+  &__icon {
+    width: 20px;
+
+    @include mixin.screen(sm) {
+      width: 16px;
+    }
+  }
+}
+
+.logo,
+.navbar__logo,
+.client__logo,
+.footer__logo {
+  display: block;
+  width: 107px;
+  height: 24px;
+
+  @include mixin.screen(sm) {
+    width: 80px;
+    height: 20px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.navbar {
+  margin-left: 64px;
+
+  @include mixin.screen(lg) {
+    position: fixed;
+    inset: 0 50% 0 0;
+    height: auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin-left: 0;
+    padding: 30px 25px 0;
+    background: #fff;
+    translate: -100%;
+    transition: translate 0.5s linear;
+    z-index: 99;
+  }
+
+  @include mixin.screen(sm) {
+    inset: 0 20% 0 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 0 28px;
+
+    @include mixin.screen(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 0;
+    }
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 5px 0;
+    color: var(--gray-black);
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      flex-shrink: 0;
+      background: var(--gray-black);
+      transition: width 0.2s linear;
+
+      @include mixin.screen(lg) {
+        display: none;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+
+      @include mixin.screen(lg) {
+        width: 0;
+      }
+    }
+
+    @include mixin.screen(lg) {
+      padding: 14px 0;
+    }
+
+    @include mixin.screen(md) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity, visibility;
+    transition-duration: 0.5s;
+
+    @include mixin.screen(lg) {
+      position: fixed;
+      inset: 0;
+      background: rgba($color: #000000, $alpha: 0.4);
+      z-index: 98;
+    }
+  }
+
+  &__checkbox:checked ~ &__overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__checkbox:checked ~ .navbar {
+    translate: 0;
+  }
+}
+
+.act {
+  margin-left: auto;
+
+  @include mixin.screen(lg) {
+    margin-left: 0;
+  }
+
+  &__btn {
+    margin-left: -4px;
+  }
+}

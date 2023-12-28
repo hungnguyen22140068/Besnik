@@ -1,0 +1,42 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 98px;
+  height: 50px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0 37px;
+  color: #fff;
+  background: var(--bg-blue);
+  transition: opacity 0.2s linear;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &--primary {
+    min-width: 170px;
+    border-radius: 12px;
+  }
+
+  &--secondary,
+  &--text {
+    height: 40px;
+    font-size: 1.4rem;
+    padding: 0 22px;
+  }
+
+  &--secondary {
+    border-radius: 8px;
+  }
+
+  &--text {
+    background: transparent;
+    color: var(--bg-blue);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

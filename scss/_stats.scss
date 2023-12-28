@@ -1,0 +1,289 @@
+@use "./mixin";
+
+.stats {
+  margin-top: 75px;
+
+  @include mixin.screen(md) {
+    margin-top: 50px;
+  }
+
+  &__inner {
+    padding: 50px 35px;
+
+    @include mixin.screen(md) {
+      padding: 50px 0;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 0 165px;
+
+    @include mixin.screen(xl) {
+      gap: 0 130px;
+    }
+
+    @include mixin.screen(lg) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__media {
+    position: relative;
+    width: 47%;
+    flex-shrink: 0;
+
+    @include mixin.screen(xl) {
+      width: 57%;
+    }
+
+    @include mixin.screen(lg) {
+      width: 100%;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 400px;
+    height: 460px;
+    border-radius: 12px;
+    margin-left: auto;
+    object-fit: cover;
+
+    @include mixin.screen(md) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    width: 30%;
+    // margin-left: 165px;
+    flex-shrink: 0;
+
+    @include mixin.screen(xl) {
+      width: 32%;
+    }
+
+    @include mixin.screen(lg) {
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
+    @include mixin.screen(md) {
+      margin-bottom: 180px;
+    }
+  }
+
+  &__heading {
+    position: relative;
+    margin-bottom: 20px;
+    line-height: 128.571%;
+
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      content: "";
+      display: block;
+      width: 41px;
+      height: 4px;
+      border-radius: 12px;
+      background: #000339;
+
+      @include mixin.screen(lg) {
+        left: 7px;
+      }
+
+      @include mixin.screen(md) {
+        left: 120px;
+      }
+
+      @include mixin.screen(sm) {
+        left: 80px;
+      }
+    }
+
+    @include mixin.screen(lg) {
+      text-align: center;
+    }
+  }
+
+  &__desc {
+    @include mixin.screen(lg) {
+      text-align: center;
+    }
+  }
+
+  &__bottom {
+    margin-top: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 220px;
+
+    // chú ý sửa
+    @include mixin.screen(xl) {
+      gap: 0 150px;
+    }
+
+    @include mixin.screen(lg) {
+      gap: 0 80px;
+    }
+
+    @include mixin.screen(md) {
+      gap: 70px 0;
+      margin-top: 50px;
+      flex-direction: column;
+    }
+  }
+
+  &__column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:hover .stats__number {
+      scale: 1.1;
+    }
+  }
+
+  &__number {
+    font-size: 6.4rem;
+    font-weight: 600;
+    margin-bottom: 22px;
+    line-height: 100%;
+    color: #000;
+    transition: scale 0.5s ease;
+
+    @include mixin.screen(lg) {
+      font-size: 5.4rem;
+    }
+
+    @include mixin.screen(md) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__caption {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #7b8087;
+
+    @include mixin.screen(lg) {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 239px;
+  padding: 45px 21px 40px;
+  border-radius: 0px 0px 12px 12px;
+  background: #fff;
+  box-shadow: 90px 85px 100px 0px rgba(0, 0, 0, 0.06);
+
+  @include mixin.screen(lg) {
+    left: -20px;
+  }
+
+  @include mixin.screen(md) {
+    width: 100%;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  @include mixin.screen(md) {
+    width: 100%;
+    top: -55%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__strong {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0.26px;
+    color: var(--black);
+
+    &-span {
+      font-weight: 500;
+    }
+  }
+
+  &__vector {
+    width: 28px;
+    height: 20px;
+    object-fit: cover;
+  }
+
+  &__desc {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 150%;
+    color: #a7a7a7;
+
+    @include mixin.screen(md) {
+      text-align: center;
+    }
+  }
+
+  &__avatar-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 14px;
+
+    @include mixin.screen(md) {
+      justify-content: center;
+    }
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+
+    &:first-child .card__avatar:first-child {
+      margin-left: 0;
+    }
+
+    &:nth-child(4) .card__avatar:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 450;
+    font-size: 0.7rem;
+    width: 16px;
+    height: 16px;
+    margin-left: -3px;
+    object-fit: cover;
+    border-radius: 50%;
+    letter-spacing: -0.02em;
+    background: var(--bg-avatar, #fff);
+    color: #fff;
+  }
+}
+
+.separate {
+  width: 100%;
+  height: 1.2px;
+  background: #e9e9e9;
+  margin: 26px 0;
+}

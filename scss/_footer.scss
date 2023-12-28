@@ -1,0 +1,124 @@
+@use "./mixin";
+
+.footer {
+  margin-top: 55px;
+  padding: 50px 0 75px;
+
+  &__heading {
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1c1c1d;
+  }
+
+  &__list {
+    margin-top: 40px;
+
+    @include mixin.screen(lg) {
+      margin-top: 25px;
+    }
+
+    @include mixin.screen(sm) {
+      margin-top: 10px;
+    }
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 9px 0;
+    color: #7a7a7e;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__desc {
+    width: 257px;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 175%;
+    color: #7a7a7e;
+
+    @include mixin.screen(xl) {
+      margin-bottom: 30px;
+    }
+
+    @include mixin.screen(lg) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+
+    &-facebook {
+      width: 7px;
+      height: 12px;
+      object-fit: cover;
+      filter: brightness(0) saturate(100%) invert(40%) sepia(8%) saturate(6%)
+        hue-rotate(108deg) brightness(92%) contrast(87%);
+    }
+
+    &-twitter {
+      width: 11px;
+      height: 9px;
+      object-fit: cover;
+      filter: brightness(0) saturate(100%) invert(40%) sepia(8%) saturate(6%)
+        hue-rotate(108deg) brightness(92%) contrast(87%);
+    }
+
+    &-linked {
+      width: 11px;
+      height: 10px;
+      object-fit: cover;
+      filter: brightness(0) saturate(100%) invert(40%) sepia(8%) saturate(6%)
+        hue-rotate(108deg) brightness(92%) contrast(87%);
+    }
+  }
+
+  &__social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    background: #f9f9f9;
+    transition: translate 0.5s linear;
+
+    &:hover {
+      translate: 0 -5px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 72px;
+
+    @include mixin.screen(md) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+  }
+
+  &__coppyright {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #c2c2c2;
+  }
+}
